@@ -1,0 +1,14 @@
+{
+    "name": "Мой день — личный планировщик",
+    "short_name": "Мой день",
+    "description": "Личный план, расписание университета, задачи и календарь",
+    "id": "./",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f5f5f7",
+    "theme_color": "#111111",
+    "lang": "ru",
+    "icons": []
+}
