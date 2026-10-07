@@ -1,0 +1,745 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --text: #111111;
+    --secondary: #777777;
+    --border: #e8e8e8;
+    --black: #111111;
+    --green: #34c759;
+    --blue: #007aff;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.app {
+    max-width: 650px;
+    min-height: 100vh;
+    margin: auto;
+    padding-bottom: 90px;
+}
+
+
+/* ================= HEADER ================= */
+
+.app-header {
+    padding: 55px 20px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-title {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.app-subtitle {
+    color: var(--secondary);
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.header-date {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 10px 13px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ================= PAGES ================= */
+
+.page {
+    display: none;
+    padding: 5px 18px 30px;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-title {
+    margin: 10px 2px 22px;
+}
+
+.page-title h1 {
+    font-size: 31px;
+    margin-top: 3px;
+    letter-spacing: -1px;
+}
+
+.page-title p {
+    margin-top: 6px;
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.small-label {
+    color: #999;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* ================= DATE ================= */
+
+.date-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.date-navigation button {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border-radius: 14px;
+    font-size: 28px;
+    border: 1px solid var(--border);
+}
+
+.current-date {
+    text-align: center;
+}
+
+.current-date div {
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+.current-date strong {
+    font-size: 20px;
+}
+
+.today-button {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 15px;
+    background: #eeeeef;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress-card {
+    background: var(--black);
+    color: white;
+    border-radius: 24px;
+    padding: 21px;
+    margin-bottom: 24px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-card .small-label {
+    color: #aaa;
+}
+
+.progress-card h2 {
+    font-size: 37px;
+    margin-top: 3px;
+}
+
+.progress-number {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+    background: #333;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 14px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    transition: width .3s ease;
+}
+
+
+/* ================= SECTION ================= */
+
+.section-heading {
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: 22px;
+    margin-top: 3px;
+}
+
+
+/* ================= TASKS ================= */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.task {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: .2s;
+}
+
+.task.done {
+    opacity: .55;
+}
+
+.task.done .task-text {
+    text-decoration: line-through;
+}
+
+.task-checkbox {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    border: 2px solid #d5d5d5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.task.done .task-checkbox {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.task-time {
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 43px;
+}
+
+.task-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.task-category {
+    color: #999;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.empty-state {
+    text-align: center;
+    background: white;
+    border-radius: 22px;
+    padding: 35px 20px;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #888;
+    margin-top: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= INFO CARD ================= */
+
+.info-card,
+.system-card,
+.calendar-card,
+.calendar-stats {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    padding: 19px;
+    margin-bottom: 16px;
+}
+
+.info-card-title,
+.system-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.rule {
+    display: flex;
+    gap: 11px;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.rule:first-of-type {
+    border-top: none;
+}
+
+.rule span:first-child {
+    width: 25px;
+}
+
+
+/* ================= WEEK SELECTOR ================= */
+
+.week-selector {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 13px;
+    margin-bottom: 7px;
+}
+
+.week-selector::-webkit-scrollbar {
+    display: none;
+}
+
+.week-button {
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    font-weight: 700;
+}
+
+.week-button.active {
+    background: var(--black);
+    color: white;
+}
+
+
+/* ================= FULL PLAN ================= */
+
+.plan-day-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.plan-day-header {
+    padding: 19px;
+    background: #111;
+    color: white;
+}
+
+.plan-day-header h2 {
+    font-size: 23px;
+}
+
+.plan-day-header p {
+    color: #aaa;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.plan-block {
+    padding: 17px 19px;
+    border-top: 1px solid #eee;
+}
+
+.plan-block-title {
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 11px;
+}
+
+.plan-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.plan-time {
+    min-width: 82px;
+    color: #888;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.plan-description {
+    color: #333;
+}
+
+
+/* ================= SYSTEM ================= */
+
+.system-row {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid #eee;
+}
+
+.system-icon {
+    font-size: 23px;
+}
+
+.system-row b {
+    font-size: 13px;
+}
+
+.system-row p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.principle {
+    background: #f5f5f5;
+    border-radius: 15px;
+    padding: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+
+/* ================= SCHEDULE ================= */
+
+.schedule-days {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.schedule-days button {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 12px 5px;
+    font-weight: 800;
+}
+
+.schedule-days button.active {
+    background: black;
+    color: white;
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 12px;
+}
+
+.schedule-header h2 {
+    font-size: 22px;
+    margin-top: 3px;
+}
+
+.lesson-count {
+    background: #eee;
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.lesson {
+    display: flex;
+    gap: 13px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 15px;
+}
+
+.lesson-number {
+    width: 31px;
+    height: 31px;
+    min-width: 31px;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.lesson-time {
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.lesson-name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.lesson-type {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 4px 7px;
+    border-radius: 7px;
+    background: #f0f0f0;
+    color: #777;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ================= CALENDAR ================= */
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    font-size: 18px;
+}
+
+.calendar-header button {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #f1f1f1;
+    font-size: 23px;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-weekdays {
+    margin-bottom: 7px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+    font-size: 9px;
+    color: #999;
+    font-weight: 800;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border-radius: 11px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+.calendar-day.today {
+    border: 2px solid #111;
+}
+
+.calendar-day.selected {
+    background: #111;
+    color: white;
+}
+
+.calendar-dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--green);
+    border-radius: 50%;
+    bottom: 4px;
+}
+
+.calendar-day.selected .calendar-dot {
+    background: white;
+}
+
+
+/* ================= STATS ================= */
+
+.stats-title h2 {
+    font-size: 21px;
+    margin-top: 4px;
+}
+
+.stats-progress {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.stat-circle {
+    width: 85px;
+    height: 85px;
+    min-width: 85px;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.stats-info {
+    display: flex;
+    gap: 28px;
+}
+
+.stats-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stats-info span {
+    font-size: 11px;
+    color: #888;
+}
+
+.stats-info b {
+    font-size: 22px;
+}
+
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(650px, 100%);
+    padding: 9px 13px calc(9px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.nav-item {
+    background: transparent;
+    color: #999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 5px;
+}
+
+.nav-item span {
+    font-size: 21px;
+}
+
+.nav-item small {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.nav-item.active {
+    color: #111;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 420px) {
+
+    .app-header {
+        padding-top: 48px;
+    }
+
+    .app-title {
+        font-size: 26px;
+    }
+
+    .page-title h1 {
+        font-size: 28px;
+    }
+
+    .stats-info {
+        gap: 18px;
+    }
+
+    .plan-time {
+        min-width: 72px;
+    }
+}
